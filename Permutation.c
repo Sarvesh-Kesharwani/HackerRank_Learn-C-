@@ -14,10 +14,12 @@ void Swap(char *a,char *b)
 
 int next_permutation(int n, char **s)
 {
+  if(n==1)
+  return 0;
   if(n==2)
   {
     if(s[0]==s[1])
-      return 0;
+      return 1;
     else
     {
       Swap(s[0],s[1]);
@@ -26,15 +28,22 @@ int next_permutation(int n, char **s)
   }
 
 int i;
+//One and only "No more permutations Condition"-------------
+  if(track[0]==n)
+  {
+    return 0;
+  }
+  ///////////////////////
   for(i=track[n-2-1];i<n;)
   {
+
     track[n-2-1]++;
 
     if(s[0] != s[i])
     {
       Swap(s[0],s[i]);
     }
-      next_permutation(n-1,s++);
+      //next_permutation(n-1,s++);
   }
 }
 
