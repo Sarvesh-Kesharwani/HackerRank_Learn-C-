@@ -2,6 +2,8 @@
 #include <stdlib.h>
 #include <string.h>
 
+int *track;
+
 void Swap(char *a,char *b)
 {
   char *temp;
@@ -12,11 +14,6 @@ void Swap(char *a,char *b)
 
 int next_permutation(int n, char **s)
 {
-	/**
-	* Complete this method
-	* Return 0 when there is no next permutation and 1 otherwise
-	* Modify array s to its next permutation
-	*/
   if(n==2)
   {
     if(s[0]==s[1])
@@ -27,9 +24,11 @@ int next_permutation(int n, char **s)
       return 1;
     }
   }
-  int i;
-  for(i=0;i<n;i++)
+
+int i;
+  for(i=track[n-2-1];i<n;)
   {
+    track[n-2-1]++;
     if(s[0] != s[i])
     {
       Swap(s[0],s[i]);
@@ -44,6 +43,9 @@ int main()
 	int n;
 	scanf("%d", &n);
 	s = calloc(n, sizeof(char*));
+/////////////////////////////////////
+  track = calloc(n-2,sizeof(int));
+/////////////////////////////////////
 	for (int i = 0; i < n; i++)
 	{
 		s[i] = calloc(11, sizeof(char));
