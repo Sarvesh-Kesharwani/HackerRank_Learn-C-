@@ -33,6 +33,10 @@ int i;
   {
     return 0;
   }
+  if(track[n-2-1]==n)
+  {
+    track[n-2-1]==0;
+  }
   ///////////////////////
   for(i=track[n-2-1];i<n;)
   {
