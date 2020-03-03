@@ -29,11 +29,12 @@ int i;
   for(i=track[n-2-1];i<n;)
   {
     track[n-2-1]++;
+
     if(s[0] != s[i])
     {
       Swap(s[0],s[i]);
-      next_permutation(n-1,s++);
     }
+      next_permutation(n-1,s++);
   }
 }
 
